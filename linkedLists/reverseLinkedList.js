@@ -32,3 +32,36 @@ f.next = g;
 
 reverseList(a);
 console.log(g);
+
+
+function difference(val1, val2){
+	return Math.abs(val1-val2)
+}
+
+
+function findClosestValueInBst(tree, target) {
+  let currentVal = tree.value
+	function findClosest(tree, target, previousVal){
+	if(target > currentVal){
+		if(tree.right){
+			let rightClosest = findClosest(tree.right, target, currentVal)
+			difference(currentVal, target) < difference(rightClosest, target) ? return currentVal : return rightClosest
+		}	
+		else {
+			difference(currentVal, target) < difference(previousVal, target) ?
+				return currentVal : return previousVal
+		}
+	}
+	if(target <= currentVal){
+		if(tree.left){
+			let leftClosest = findClosest(tree.left, target, currentVal)
+			difference(currentVal, target) < difference(leftClosest, target) ?
+				return currentVal : return leftClosest
+		}	
+		else {
+			difference(currentVal, target) < difference(previousVal, target) ?
+				return currentVal : return previousVal
+		}
+	}
+	}
+}

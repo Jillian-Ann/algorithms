@@ -3,6 +3,11 @@
 
 // The array that is returned should only contain unique values and its elements should be in alphabetical order.
 
+// string = AT
+// anchor = A
+//other = "T"
+results = "CAT, CTA"
+
 function stringPermutations(string) {
   if (string.length === 1) {
     return [string];

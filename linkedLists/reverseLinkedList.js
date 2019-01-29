@@ -45,22 +45,22 @@ function findClosestValueInBst(tree, target) {
 	if(target > currentVal){
 		if(tree.right){
 			let rightClosest = findClosest(tree.right, target, currentVal)
-			difference(currentVal, target) < difference(rightClosest, target) ? return currentVal : return rightClosest
+			return (difference(currentVal, target) < difference(rightClosest, target) ?  currentVal : rightClosest)
 		}	
 		else {
-			difference(currentVal, target) < difference(previousVal, target) ?
-				return currentVal : return previousVal
+			return (difference(currentVal, target) < difference(previousVal, target) ?
+				 currentVal :  previousVal)
 		}
 	}
 	if(target <= currentVal){
 		if(tree.left){
 			let leftClosest = findClosest(tree.left, target, currentVal)
-			difference(currentVal, target) < difference(leftClosest, target) ?
-				return currentVal : return leftClosest
+			return (difference(currentVal, target) < difference(leftClosest, target) ?
+				currentVal :  leftClosest)
 		}	
 		else {
-			difference(currentVal, target) < difference(previousVal, target) ?
-				return currentVal : return previousVal
+			return (difference(currentVal, target) < difference(previousVal, target) ?
+				currentVal :  previousVal)
 		}
 	}
 	}
